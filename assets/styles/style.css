@@ -18,3 +18,64 @@
   /* Take available height */
   flex: 1;
 }
+img {
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 5px;
+  width: 250px;
+}
+.sticky-header__header {
+  /* Stick to the top */
+  position: fixed;
+  top: 0;
+  display: flex;
+  gap: 40px;
+  background: linear-gradient(
+    90deg,
+    rgba(180, 96, 83, 1) 6%,
+    rgba(215, 52, 5, 1) 73%
+  );
+  padding: 15px 25px;
+  border-radius: 50px;
+  color: white;
+  text-decoration: none;
+}
+.tab {
+  /* Center the content */
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}
+
+.buttons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 25px;
+  margin-top: 175px;
+}
+.button {
+  display: flex;
+  gap: 50px;
+  background: linear-gradient(
+    90deg,
+    rgba(180, 96, 83, 1) 6%,
+    rgba(215, 52, 5, 1) 73%
+  );
+  padding: 15px 25px;
+  border-radius: 50px;
+  color: white;
+  text-decoration: none;
+}
+#main-page-body {
+  background-image: url(https://images.alphacoders.com/641/641547.jpg);
+  background-size: cover;
+}
+#index02-body {
+  background-image: url(https://images7.alphacoders.com/751/thumbbig-751400.webp);
+  background-size: cover;
+}
+#index01-body {
+  background-image: url(https://images7.alphacoders.com/606/thumbbig-606023.webp);
+  background-size: cover;
+}
