@@ -69,13 +69,37 @@ img {
 }
 #main-page-body {
   background-image: url(https://images.alphacoders.com/641/641547.jpg);
+  background-attachment: fixed;
   background-size: cover;
+  background-repeat: no-repeat;
+  font-family: "PT Mono", monospace;
+  font-size: 23px;
+  font-weight: bold;
 }
 #index02-body {
   background-image: url(https://images7.alphacoders.com/751/thumbbig-751400.webp);
   background-size: cover;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  font-family: "PT Mono", monospace;
+  font-size: 20px;
+  font-weight: bold;
 }
 #index01-body {
   background-image: url(https://images7.alphacoders.com/606/thumbbig-606023.webp);
   background-size: cover;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  font-family: "PT Mono", monospace;
+  font-size: 20px;
+  font-weight: bold;
+}
+.homepagebutton {
+  margin: auto;
+  position: fixed;
+
+  right: 50%;
+  justify-content: center;
+  align-items: center;
+  width: 5%;
 }
