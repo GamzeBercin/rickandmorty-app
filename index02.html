@@ -17,7 +17,9 @@
   <body id="index02-body">
     <div>
       <div>
-        <a href="./index.html" class="button homepagebutton">LOCATİONS</a>
+        <a href="./index.html" class="button homepagebutton"
+          >BACK TO HOMEPAGE</a
+        >
       </div>
 
       <div class="cards" id="locations-card"></div>
@@ -28,6 +30,7 @@
         (async () => {
           const getResults = await getLocations();
           const allDataString = getResults
+
             .map(
               (item) => `
             <div class="card">
