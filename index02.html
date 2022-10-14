@@ -5,21 +5,44 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./assets/styles/style.css" />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=PT+Mono&display=swap" rel="stylesheet">
-    
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=PT+Mono&display=swap"
+      rel="stylesheet"
+    />
+
     <title>Document</title>
   </head>
   <body id="index02-body">
-    <div >
-  
+    <div>
       <div>
-        <a href="./index.html" class="button homepagebutton" target="_blank" >LOCATİONS</a>
+        <a href="./index.html" class="button homepagebutton">LOCATİONS</a>
       </div>
-      
-    <div class="cards" id="locations-card"></div>
-    <script src="./assets/js/locations.js"></script>
-  </main>
+
+      <div class="cards" id="locations-card"></div>
+
+      <script src="./assets/js/utils/variables.js"></script>
+      <script src="./assets/js/utils/functions.js"></script>
+      <script>
+        (async () => {
+          const getResults = await getLocations();
+          const allDataString = getResults
+            .map(
+              (item) => `
+            <div class="card">
+              <img class="card__cover" src="https://i2-prod.mirror.co.uk/incoming/article12626254.ece/ALTERNATES/s615b/Planets.jpg" />
+              <div class="card__content">${item.name}</div>
+              <div class="card__content">${item.type}</div>
+              <div class="card__content">${item.dimension}</div>
+            </div>
+        `
+            )
+            .join("");
+
+          writePrefetchedList("#locations-card", allDataString);
+        })();
+      </script>
+    </div>
   </body>
 </html>

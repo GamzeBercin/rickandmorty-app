@@ -15,12 +15,36 @@
   </head>
   <body id="index01-body">
     <div>
-      <a href="./index.html" class="button homepagebutton" target="_blank"
-        >CHARACTERS</a
-      >
+      <a href="./index.html" class="button homepagebutton">CHARACTERS</a>
     </div>
     <div class="cards" id="cards"></div>
 
-    <script src="./assets/js/characters.js"></script>
+    <script src="./assets/js/utils/variables.js"></script>
+    <script src="./assets/js/utils/functions.js"></script>
+
+    <script>
+      (async () => {
+        const getResults = await getCharacters();
+        const allDataString = getResults
+          .map(
+            (item) => `
+            <div class="card">
+              <div class="card__cover">
+                <img src="${item.image}" alt="" />
+              </div>
+              <div class="card__content">
+                <div class="card__content-item">${item.name}</div>
+                <div class="card__content-item">${item.gender}</div>
+                <div class="card__content-item">${item.status}</div>
+                <div class="card__content-item">${item.origin.name}</div>
+              </div>
+            </div>
+        `
+          )
+          .join("");
+
+        writePrefetchedList("#cards", allDataString);
+      })();
+    </script>
   </body>
 </html>
