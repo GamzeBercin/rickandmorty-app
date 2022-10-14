@@ -103,3 +103,73 @@ img {
   align-items: center;
   width: 5%;
 }
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+nav {
+  margin-right: 400px;
+}
+
+ul {
+  overflow: auto;
+  list-style-type: none;
+}
+
+li {
+  height: 25px;
+  float: left;
+  margin-right: 0px;
+  border-right: 1px solid #aaa;
+  padding: 0 20px;
+}
+
+li:last-child {
+  border-right: none;
+}
+
+li a {
+  text-decoration: none;
+  color: rgba(215, 52, 5, 1);
+
+  text-transform: uppercase;
+
+  -webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
+  -ms-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+}
+
+li a:hover {
+  color: #666;
+}
+
+li.active a {
+  font-weight: bold;
+  color: #333;
+}
+
+.episode_date {
+  text-decoration: none;
+  color: rgba(215, 52, 5, 1);
+
+  text-transform: uppercase;
+
+  -webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
+  -ms-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+}
+#index03-body {
+  font-family: "PT Mono", monospace;
+  font-size: 20px;
+  font-weight: bold;
+  background-image: url(https://images7.alphacoders.com/633/633262.png);
+  background-size: cover;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+}
