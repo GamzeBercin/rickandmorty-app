@@ -7,6 +7,8 @@
 .card {
   display: flex;
   flex-direction: column;
+  width: 20%;
+  justify-content: space-between;
 }
 
 .card__cover {
@@ -56,7 +58,7 @@ img {
 }
 .button {
   display: flex;
-  gap: 50px;
+  gap: 10px;
   background: linear-gradient(
     90deg,
     rgba(180, 96, 83, 1) 6%,
@@ -97,11 +99,9 @@ img {
 .homepagebutton {
   margin: auto;
   position: fixed;
-
   right: 50%;
   justify-content: center;
   align-items: center;
-  width: 5%;
 }
 
 * {
