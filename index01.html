@@ -32,28 +32,55 @@
     <script src="./assets/js/utils/functions.js"></script>
 
     <script>
-      (async () => {
-        const getResults = await getCharacters();
-        const allDataString = getResults
+      let currentPage = 0;
+      let isNext = true;
+
+      let allContent = "";
+      const writeCharacters = async () => {
+        const getResults = await getCharacters(currentPage);
+        isNext = getResults.info.next;
+
+        const allDataString = getResults.results
           .map(
             (item) => `
-            <div class="card">
-              <div class="card__cover">
-                <img src="${item.image}" alt="" />
-              </div>
-              <div class="card__content">
-                <div class="card__content-item">${item.name}</div>
-                <div class="card__content-item">${item.gender}</div>
-                <div class="card__content-item">${item.status}</div>
-                <div class="card__content-item">${item.origin.name}</div>
-              </div>
-            </div>
-        `
+  <div class="card">
+    <div class="card__cover">
+      <img src="${item.image}" alt="" />
+    </div>
+    <div class="card__content">
+      <div class="card__content-item">${item.name}</div>
+      <div class="card__content-item">${item.gender}</div>
+      <div class="card__content-item">${item.status}</div>
+      <div class="card__content-item">${item.origin.name}</div>
+    </div>
+  </div>
+`
           )
           .join("");
-
-        writePrefetchedList("#cards", allDataString);
+        allContent += allDataString;
+        writePrefetchedList("#cards", allContent);
+      };
+      (async () => {
+        await writeCharacters();
       })();
+
+      window.addEventListener(
+        "scroll",
+        async () => {
+          if (
+            window.innerHeight + window.pageYOffset >=
+              document.body.offsetHeight - 5 &&
+            isNext
+          ) {
+            currentPage++;
+
+            await writeCharacters();
+          }
+        },
+        {
+          passive: true,
+        }
+      );
     </script>
   </body>
 </html>

@@ -1,8 +1,8 @@
-const getCharacters = async () =>
-  (await (await fetch(`${API_ENDPOINT}/character`)).json()).results;
-
-const getLocations = async () =>
-  (await (await fetch(`${API_ENDPOINT}/location`)).json()).results;
+//
+const getCharacters = async (page) =>
+  await (await fetch(`${API_ENDPOINT}/character?page=${page}`)).json();
+const getLocations = async (page) =>
+  await (await fetch(`${API_ENDPOINT}/location?page=${page}`)).json();
 
 const getEpisodes = async () =>
   (await (await fetch(`${API_ENDPOINT}/episode`)).json()).results;

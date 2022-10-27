@@ -33,9 +33,14 @@
       <script src="./assets/js/utils/variables.js"></script>
       <script src="./assets/js/utils/functions.js"></script>
       <script>
-        (async () => {
-          const getResults = await getLocations();
-          const allDataString = getResults
+        let currentPage = 0;
+        let isNext = true;
+
+        let allContent = "";
+        const writeLocations = async () => {
+          const getResults = await getLocations(currentPage);
+          isNext = getResults.info.next;
+          const allDataString = getResults.results
 
             .map(
               (item) => `
@@ -48,9 +53,30 @@
         `
             )
             .join("");
+          allContent += allDataString;
 
-          writePrefetchedList("#locations-card", allDataString);
+          writePrefetchedList("#locations-card", allContent);
+        };
+        (async () => {
+          await writeLocations();
         })();
+        window.addEventListener(
+          "scroll",
+          async () => {
+            if (
+              window.innerHeight + window.pageYOffset >=
+                document.body.offsetHeight - 5 &&
+              isNext
+            ) {
+              currentPage++;
+
+              await writeLocations();
+            }
+          },
+          {
+            passive: true,
+          }
+        );
       </script>
     </div>
   </body>
